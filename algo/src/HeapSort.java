@@ -1,11 +1,11 @@
 import java.util.Arrays;
 
 /*
- Sort an array 1, 7, 4, 2, 13, 5, 3, 4 with Heap Sort
- */
+Sort an array 1, 7, 4, 2, 13, 5, 3, 4 with Heap Sort
+*/
 public class HeapSort {
 
-	private static int[] array = new int[] { 1, 7, 4, 2, 13, 5, 3, 4 };
+	private static int[] array = new int[] {1, 7, 4, 2, 13, 5, 3, 4};
 
 	private static void heapify(int array[], int from, int to) {
 		for (int i = from + 1; i <= to; i++) {
@@ -20,7 +20,7 @@ public class HeapSort {
 			}
 		}
 	}
-
+	
 	private static void swap(int[] array, int indexA, int indexB) {
 		int temp = array[indexA];
 		array[indexA] = array[indexB];

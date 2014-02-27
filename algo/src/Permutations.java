@@ -1,47 +1,41 @@
 /*
- Print all permutations of array [1, 2, 3]
- */
+Print all permutations of array [1, 2, 3]
+*/
 public class Permutations {
 
-	private static final int[] array = new int[] { 1, 2, 3, 4, 5 };
+	private static final int[] array = new array[] {1, 2, 3};
 
-	public static void printAllPermutations(int[] array) {
-		printAllPermutations(new int[0], array);
-	}
-
-	private static void printAllPermutations(int[] prefix, int[] array) {
-		int length = array.length;
-		if (length == 0) {
-			print(prefix);
-		} else {
-			for (int i = 0; i < length; i++) {
-				int[] newPrefix = new int[prefix.length + 1];
-				System.arraycopy(prefix, 0, newPrefix, 0, prefix.length);
-				newPrefix[prefix.length] = array[i];
-
-				int[] newArray = new int[array.length - 1];
-				System.arraycopy(array, 0, newArray, 0, i);
-				System.arraycopy(array, i + 1, newArray, i, length - i - 1);
-
-				printAllPermutations(newPrefix, newArray);
-			}
-		}
-
-	}
-
-	private static void print(int[] array) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("[");
+	private static void printAllPermutations(int[] array) {
+		List<Integer> elements = new ArrayList<Integer>();
 		for (int i = 0; i < array.length; i++) {
-			sb.append(array[i]);
-			if (i + 1 < array.length) {
-				sb.append(", ");
-			}
+			elements.add(array[i]);
 		}
-		sb.append("]");
-		System.out.println(sb.toString());
+		List<Integer> permutation = new ArrayList<Integer>();
+		printAllPermutationsInternal(permutations, elements);
 	}
-
+	
+	private static void printAllPermutationsInternal(List<Integer> permutations, List<Integer> elements) {
+		if (elemets.size == 0) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("[");
+			for (int i = 0; i < permutations.size(); i++) {
+				sb.append(permuations.get(i));
+				if (i + 1 < permutations.size()) {
+					sb.append(", ");
+				}
+			}
+			sb.append("]");
+			System.out.println(sb.toString());
+			return;
+		}
+	
+		for (int number : elements) {
+			permutations.add(number);
+			elements.remove(number);
+			printAllPermutationsInternal(permutations, elements);
+		}
+	}
+	
 	public static void main(String[] args) {
 		printAllPermutations(array);
 	}

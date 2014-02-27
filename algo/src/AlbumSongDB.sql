@@ -1,0 +1,3 @@
+/*
+Design DB for Album and Song
+*/

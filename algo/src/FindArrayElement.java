@@ -26,7 +26,7 @@ public class FindArrayElement {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("find(13): " + find(array, 0, array.length - 1, 111));
+		System.out.println("find(13): " + find(array, 0, array.length - 1, 13));
 	}
 
 }

@@ -31,23 +31,58 @@ public class PeekingIterator<T> {
   T next() throws Exception {
     T result;
     if (nextElement == null) {
-      nextElement = it.next();
-      result = nextElement;
-    } else {
-      result = nextElement;
-      nextElement = null;
-    }
-    return result;
+	  nextElement = it.next();
+	  result = nextElement;
+	} else {
+	  result = nextElement;
+	  nextElement = null;
+	}
+	return result;
   }
 
   // Returns what next would return, or null if next would throw an exception
   T peek() {
-    if (it.hasNext()) {
-      nextElement = it.next();
-    } else {
-      nextElement = null;
-    }
-    return nextElement;
+    if (nextElement == null && it.hasNext()) {
+	  nextElement = it.next();
+	}
+	return nextElement;
   }
 
 }
+
+//--------------------------------------------------------------------------
+public class PeekingIterator<T> {
+  private Iterator<T> it;
+  private T nextElement;
+  private Exception nextException;
+
+  public PeekingIterator(Iterator<T> it) {
+    this.it = it;
+    nextElement = it.next();
+  }
+
+  boolean hasNext() {
+    return it.hasNext();
+  }
+
+  T next() throws Exception {
+    if (nextException != null) {
+	  throw nextException;
+	}
+    T result = nextElement;
+	try {
+	  nextElement = result.next();
+	} catch (Exception e) {
+	  nextElement = null;
+	  nextException = e;
+	}
+	return result;
+  }
+
+  // Returns what next would return, or null if next would throw an exception
+  T peek() {
+	return nextElement;
+  }
+
+}
+

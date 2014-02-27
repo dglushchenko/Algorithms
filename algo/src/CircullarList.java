@@ -24,7 +24,7 @@ public class CircullarList {
 	
 	public static void main(String[] args) {
 	
-		System.out.println("Min index: " + findMin(array, 0, array.length - 1));
+		System.out.println("Min: " + findMin());
 	
 	}
 }

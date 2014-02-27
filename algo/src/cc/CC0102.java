@@ -1,6 +1,6 @@
 package cc;
 /*
-1.2 Write code to reverse a C-Style String. (C-String means that “abcd” is represented as
+1.2 Write code to reverse a C-Style String. (C-String means that â€œabcdâ€ is represented as
 !ve characters, including the null character.)
 */
 public class CC0102 {
